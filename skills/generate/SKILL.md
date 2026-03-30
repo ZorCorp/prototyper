@@ -1,7 +1,7 @@
 ---
 name: generate
 description: >
-  Prototyper Step 3 — Generate the full .prototyper/ output (vanilla HTML/CSS/JS)
+  Prototyper Step 3 — Generate the full prototyper/ output (vanilla HTML/CSS/JS)
   based on the approved demo flow. Produces a self-contained interactive demo
   with auto-play cursor, animations, and manual click interaction.
 argument-hint: "[approved-flow-description]"
@@ -17,13 +17,13 @@ allowed-tools:
 
 # Prototyper: Generate
 
-Build the `.prototyper/` output from the approved demo flow.
+Build the `prototyper/` output from the approved demo flow.
 Read `../prototyper/references/patterns.md` for full code templates before starting.
 
 ## Output structure
 
 ```
-.prototyper/
+prototyper/
 ├── index.html              # Single entry point
 ├── css/
 │   └── styles.css          # Brand colors, layout, animations, controls
@@ -43,7 +43,7 @@ Read `../prototyper/references/patterns.md` for full code templates before start
 
 - **Vanilla JS** — IIFEs with global vars. No ES modules, no npm.
 - **No CDN** — inline SVGs, system fonts. Zero external requests.
-- **Self-contained** — copy all images into `.prototyper/assets/`.
+- **Self-contained** — copy all images into `prototyper/assets/`.
 - **Load order** — `data.js` → `icons.js` → `screens.js` → `autoplay.js` → `app.js`
 - **IIFE exports** — every var used by another module MUST be in `return {}`
 

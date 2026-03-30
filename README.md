@@ -9,7 +9,7 @@ source code / Stitch UI
         ↓
    /prototyper:analyze    →  maps all screens, styles, assets
    /prototyper:propose    →  proposes demo flow, user tunes it
-   /prototyper:generate   →  builds .prototyper/ (HTML/CSS/JS)
+   /prototyper:generate   →  builds prototyper/ (HTML/CSS/JS)
    /prototyper:verify     →  syntax check + local preview
    /prototyper:deploy     →  git push → GitHub Pages URL
 ```
@@ -46,7 +46,7 @@ cp -r skills/prototyper ~/.claude/skills/prototyper
 | `/prototyper:prototyper` | Full workflow — analyze → propose → generate → verify → deploy |
 | `/prototyper:analyze` | Step 1 — Map screens, styles, icons, assets from source code |
 | `/prototyper:propose` | Step 2 — Present a numbered demo timeline for user approval |
-| `/prototyper:generate` | Step 3 — Build `.prototyper/` (vanilla HTML/CSS/JS) |
+| `/prototyper:generate` | Step 3 — Build `prototyper/` (vanilla HTML/CSS/JS) |
 | `/prototyper:verify` | Step 4 — Syntax check all JS + serve locally at port 3333 |
 | `/prototyper:deploy` | Step 5 — `git push` + output GitHub Pages URL |
 
@@ -109,7 +109,7 @@ Make a demo, skip the login screen, loop back after checkout success
 ## Output
 
 ```
-.prototyper/
+prototyper/
 ├── index.html          # Single entry point — open directly in browser
 ├── css/styles.css      # Brand colors, layout, animations, controls
 ├── js/

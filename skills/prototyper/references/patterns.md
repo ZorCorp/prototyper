@@ -1,6 +1,6 @@
 # Prototyper Code Patterns Reference
 
-Detailed code patterns for generating `.prototyper/` output. Read this when
+Detailed code patterns for generating `prototyper/` output. Read this when
 you need implementation details beyond what SKILL.md covers.
 
 ## Table of Contents

@@ -2,7 +2,7 @@
 name: prototyper
 description: >
   Converts any product's source code or Stitch UI designs into a standalone
-  interactive HTML demo. Generates `.prototyper/` with vanilla HTML/CSS/JS
+  interactive HTML demo. Generates `prototyper/` with vanilla HTML/CSS/JS
   featuring auto-play with simulated cursor, animations, and manual click
   interaction. Deploys to GitHub Pages for sharing.
 
@@ -26,7 +26,7 @@ allowed-tools:
 # Prototyper
 
 Build an interactive product demo from source code or Stitch UI designs.
-Output: self-contained `.prototyper/` (vanilla HTML/CSS/JS) — no build step,
+Output: self-contained `prototyper/` (vanilla HTML/CSS/JS) — no build step,
 no dependencies. Deployed to GitHub Pages for instant sharing.
 
 ```
@@ -132,7 +132,7 @@ The user may adjust: "skip checkout", "add upload step", "make step 3 longer",
 ### Output structure
 
 ```
-.prototyper/
+prototyper/
 ├── index.html              # Single entry point
 ├── css/
 │   └── styles.css          # Brand colors, layout, animations, controls
@@ -155,7 +155,7 @@ Non-negotiable for `file://` compatibility:
 - **Vanilla JS** — IIFEs with global vars. No ES modules, no npm.
 - **No CDN** — inline SVGs, system fonts. Zero external requests (except
   logos the product already loads externally).
-- **Self-contained** — copy all images into `.prototyper/assets/`.
+- **Self-contained** — copy all images into `prototyper/assets/`.
 - **Load order** — `data.js` → `icons.js` → `screens.js` → `autoplay.js` → `app.js`
 
 ### Architecture
@@ -204,7 +204,7 @@ node -e "new Function(require('fs').readFileSync('FILE','utf8'))"
 ### 4.2 Serve locally
 
 ```bash
-npx -y serve .prototyper -p 3333 -s &
+npx -y serve prototyper -p 3333 -s &
 ```
 
 Tell user: "Demo running at http://localhost:3333 — check auto-play runs
@@ -223,7 +223,7 @@ Once the user confirms the demo works:
 ### 5.1 Commit & push
 
 ```bash
-git add .prototyper/
+git add prototyper/
 git commit -m "feat: add interactive product demo (Prototyper)"
 git push
 ```
@@ -233,7 +233,7 @@ git push
 ```bash
 GH_USER=$(gh api user -q '.login')
 REPO=$(basename $(git rev-parse --show-toplevel))
-echo "https://${GH_USER}.github.io/${REPO}/.prototyper/index.html"
+echo "https://${GH_USER}.github.io/${REPO}/prototyper/index.html"
 ```
 
 ### 5.3 Present to user
@@ -242,7 +242,7 @@ echo "https://${GH_USER}.github.io/${REPO}/.prototyper/index.html"
 Demo deployed!
 
 🖥  Local:   http://localhost:3333
-🌐 Public:  https://<user>.github.io/<repo>/.prototyper/index.html
+🌐 Public:  https://<user>.github.io/<repo>/prototyper/index.html
 
 Share the public URL — anyone can view the interactive demo.
 Auto-plays on open; viewers can pause and click through manually.
@@ -261,4 +261,4 @@ Note: GitHub Pages may take 1-2 minutes to propagate on first deploy.
 | Progress bar ignores pause | `requestAnimationFrame` loop missing `paused` check | Add `if (paused) { raf(tick); return; }` |
 | Broken images | Path relative to wrong root | Always relative to `index.html`, copy to `assets/` |
 | Cursor targets missing | Elements not in DOM yet | Use `data-*` attrs, query after `innerHTML` swap |
-| GitHub Pages 404 | `.prototyper` starts with dot | May need `docs/prototyper/` or adjust path — check repo settings |
+| GitHub Pages 404 | `prototyper` starts with dot | May need `docs/prototyper/` or adjust path — check repo settings |
