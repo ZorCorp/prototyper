@@ -1,0 +1,10 @@
+{
+  "name": "prototyper",
+  "version": "1.0.0",
+  "description": "Converts any product's source code or Stitch UI designs into a standalone interactive HTML demo with auto-play, simulated cursor, and animations.",
+  "author": {
+    "name": "alexc"
+  },
+  "license": "MIT",
+  "keywords": ["prototyper", "demo", "html", "interactive", "stitch", "autoplay"]
+}
