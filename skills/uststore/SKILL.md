@@ -83,8 +83,31 @@ Shadows:   lg (cards), sm (buttons)
 | typography-crewneck-navy | 文字套頭衛衣 (深藍) | typography-crewneck-navy.png | HK$320 |
 | windbreaker-red | 防風外套 (紅色) | windbreaker-red.png | HK$480 |
 
-Assets path: `examples/uststore/public/products/` (embedded in plugin).
+Product images path: `examples/uststore/public/products/`
 Copy to `prototyper/assets/products/` during generation.
+
+### Pre-generated Try-On Images
+
+> **⚠️ CRITICAL — Use real images, NEVER blank placeholders**
+> All photos below are pre-generated and ready to use. Copy them to
+> `prototyper/assets/img/` and reference them directly. Never substitute
+> with SVG silhouettes, grey boxes, or any placeholder.
+
+Path: `examples/uststore/img/`
+
+| File | Usage |
+|------|-------|
+| `origial-human.png` | The "before" person photo shown in the Result screen (left side) |
+| `human-hoodie-navy.png` | Try-on result for HKUST Hoodie 深藍 |
+| `human-hoodie-gold.png` | Try-on result for HKUST Hoodie 金色 |
+| `human-campus-crewneck-cream.png.png` | Try-on result for 校園套頭衛衣 米白 |
+| `human-typography-crewneck-navy.png` | Try-on result for 文字套頭衛衣 深藍 |
+| `human-windbreaker-red.png` | Try-on result for 防風外套 紅色 |
+
+Use `origial-human.png` as the "before" photo. In the Result screen, show the
+result image that **matches the selected product** — e.g. if user picked
+`hoodie-navy`, show `human-hoodie-navy.png` as the "after" photo.
+Never use SVG silhouettes, grey boxes, or blank placeholders.
 
 ### Icons
 
@@ -188,9 +211,12 @@ prototyper/
    grid pattern of small squares) since no real QR lib is available. Add label
    "掃描 QR 碼" below it.
 
-3. **Person image** — Use an SVG silhouette placeholder (person outline) for
-   the "before" photo. The "after" result can use the garment image overlaid on
-   the silhouette with 80% opacity.
+3. **Person image** — Use `assets/img/origial-human.png` as the "before" photo
+   in the Result screen (left side). For the "after" photo (right side), use the
+   result image matching the selected product:
+   `human-hoodie-navy.png`, `human-hoodie-gold.png`, `human-campus-crewneck-cream.png.png`,
+   `human-typography-crewneck-navy.png`, or `human-windbreaker-red.png`.
+   **Never use SVG silhouettes, grey boxes, or blank placeholders.**
 
 4. **Progress bar** — CSS transition `width: 0% → 100%` over 2s, gold fill on
    navy track.
@@ -207,6 +233,7 @@ prototyper/
 ### Build sequence
 
 1. Copy product images: `cp examples/uststore/public/products/*.png prototyper/assets/products/`
+   Copy try-on images:  `cp examples/uststore/img/*.png prototyper/assets/img/`
 2. Build `data.js` with 5 products + mock session object
 3. Build `icons.js` with all 9 required SVG functions
 4. Build `styles.css` with UST brand vars + split-screen layout + all animations

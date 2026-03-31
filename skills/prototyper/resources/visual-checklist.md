@@ -1,5 +1,10 @@
 # Visual Fidelity Checklist
 
+> **⚠️ CRITICAL — 100% source-based design**
+> Every visual detail MUST come from the source code or website.
+> Never invent colors, fonts, layouts, or styles — extract them.
+> The demo must be indistinguishable from the real product at a glance.
+
 The Prototyper demo must look like the real product, not a wireframe.
 Check every item before showing to the user.
 
@@ -51,9 +56,18 @@ Check every item before showing to the user.
 - [ ] Success animations match (checkmark, confetti, ping)
 
 ## Images
+
+> **⚠️ NEVER use blank/grey boxes, SVG silhouettes, or placeholder blocks**
+> for any image area. If the source provides images, copy and use them.
+> If images are in `examples/*/img/`, `examples/*/public/`, `public/`, `img/`,
+> `static/`, or `assets/` — they MUST be copied to `prototyper/assets/` and
+> referenced directly. Only use a placeholder as a last resort when NO image
+> file exists anywhere in the source, and even then use a styled CSS block
+> that matches the source's shape/color — never an empty white/grey box.
+
 - [ ] Product images are real (copied from source), not placeholders
 - [ ] Result/output images included if available
-- [ ] Person/avatar images included if available
+- [ ] Person/avatar images included if available (`origial-human.png` for uststore)
 - [ ] Logo references correct (local or external URL)
 - [ ] Image aspect ratios preserved
 - [ ] Image object-fit correct (contain vs cover)

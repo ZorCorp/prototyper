@@ -70,9 +70,15 @@ Support BOTH auto-play AND manual interaction:
 
 ## Visual fidelity
 
+> **⚠️ CRITICAL — 100% source-based design**
+> Every visual decision MUST be extracted directly from the source code or
+> website. Never invent or assume colors, fonts, layouts, spacing, icons, or
+> component styles. If it is not in the source, ask the user before proceeding.
+> The finished demo must be indistinguishable from the real product at a glance.
+
 Read `../prototyper/resources/visual-checklist.md`.
 The demo must look like the real product — brand colors, border-radius, shadows,
-icons, and animations must match the source.
+icons, and animations must all be extracted from the source exactly.
 
 ## After generation
 

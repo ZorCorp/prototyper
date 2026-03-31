@@ -169,9 +169,15 @@ Read `references/patterns.md` for full code templates. Key patterns:
 
 ### Visual fidelity
 
+> **⚠️ CRITICAL — 100% source-based design**
+> Every visual decision MUST be extracted directly from the source code or
+> website. Never invent or assume colors, fonts, layouts, spacing, icons, or
+> component styles. If it is not in the source, ask the user before proceeding.
+> The finished demo must be indistinguishable from the real product at a glance.
+
 Read `resources/visual-checklist.md`. The demo must look like the real product,
 not a wireframe. Brand colors, border-radius, shadows, icons, animations —
-all must match the source.
+all must match the source exactly.
 
 ### Interaction design
 
