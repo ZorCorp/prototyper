@@ -1,4 +1,4 @@
-# @cyh928/prototyper — Claude Code Plugin
+# prototyper — Claude Code Plugin
 
 Convert any product's source code or Stitch UI designs into a **standalone interactive HTML demo** with auto-play, simulated cursor, and animations.
 
@@ -9,15 +9,14 @@ Includes a **built-in demo** for the **HKUST Souvenir Store Virtual Try-On Kiosk
 ## Table of Contents
 
 1. [What It Does](#what-it-does)
-2. [Install via npm](#install-via-npm)
-3. [Install via Git](#install-via-git)
-4. [Quick Start](#quick-start)
-5. [Try It Yourself: Hands-On Tutorial](#try-it-yourself-hands-on-tutorial)
-6. [Tutorial: Any Project](#tutorial-any-project-your-own-code)
-7. [Commands Reference](#commands-reference)
-8. [Output Structure](#output-structure)
-9. [Features](#features)
-10. [Supported Frameworks](#supported-frameworks)
+2. [Install](#install)
+3. [Quick Start](#quick-start)
+4. [Try It Yourself: Hands-On Tutorial](#try-it-yourself-hands-on-tutorial)
+5. [Tutorial: Any Project](#tutorial-any-project-your-own-code)
+6. [Commands Reference](#commands-reference)
+7. [Output Structure](#output-structure)
+8. [Features](#features)
+9. [Supported Frameworks](#supported-frameworks)
 
 ---
 
@@ -42,88 +41,45 @@ Run all steps at once: `/prototyper:prototyper`
 
 ---
 
-## Install via npm
+## Install
 
-> **Option B — npm** (recommended): one command, auto-installs skills into `~/.claude/skills/`.
+### Option A — Claude Code Plugin Marketplace
 
-### Prerequisites
+```
+/plugin marketplace add ZorCorp/zorskill
+/plugin install prototyper
+```
 
-- [Node.js](https://nodejs.org/) v18 or later
-- [Claude Code](https://claude.ai/code) CLI installed
+### Option B — npm (all ZorCorp skills)
 
-### Install
+Installs prototyper together with all other ZorCorp skills and auto-symlinks into every agent on your machine.
 
 ```bash
-npm install -g @cyh928/prototyper
+npm install -g @zorcorp/zorskills
 ```
 
-The `postinstall` script runs automatically and copies all skills into `~/.claude/skills/`. You will see:
-
-```
-╔══════════════════════════════════════════════════════════╗
-║          @cyh928/prototyper — Skills Installed           ║
-╠══════════════════════════════════════════════════════════╣
-║  ✓  /prototyper                                          ║
-║  ✓  /analyze                                             ║
-║  ✓  /propose                                             ║
-║  ✓  /generate                                            ║
-║  ✓  /verify                                              ║
-║  ✓  /deploy                                              ║
-║  ✓  /uststore                                            ║
-╠══════════════════════════════════════════════════════════╣
-║  Installed to: ~/.claude/skills/                         ║
-╠══════════════════════════════════════════════════════════╣
-║  Quick start:                                            ║
-║    /prototyper:prototyper .      ← full workflow         ║
-║    /prototyper:uststore          ← HKUST Store demo      ║
-╚══════════════════════════════════════════════════════════╝
-```
-
-### Update
+Update:
 
 ```bash
-npm update -g @cyh928/prototyper
+npm update -g @zorcorp/zorskills
 ```
 
-> **Windows note:** On Windows, files are copied (not symlinked) to `~/.claude/skills/`. After updating, run `prototyper-setup` once to refresh:
-> ```bash
-> prototyper-setup
-> ```
-
-### Uninstall
+### Option C — Git (manual)
 
 ```bash
-npm uninstall -g @cyh928/prototyper
+git clone https://github.com/ZorCorp/prototyper
+cd prototyper
+node scripts/setup.js
 ```
 
-Then remove the installed skills manually:
+Or point Claude Code at the directory directly:
 
 ```bash
-# Unix/Mac
-rm -rf ~/.claude/skills/prototyper ~/.claude/skills/analyze ~/.claude/skills/propose
-rm -rf ~/.claude/skills/generate ~/.claude/skills/verify ~/.claude/skills/deploy
-rm -rf ~/.claude/skills/uststore
-
-# Windows (PowerShell)
-Remove-Item -Recurse -Force "$env:USERPROFILE\.claude\skills\prototyper"
-# repeat for each skill name
+claude --plugin-dir ./prototyper
 ```
 
 ---
 
-## Install via Git
-
-```bash
-git clone https://github.com/CYH928/prototyper-plugin
-cd prototyper-plugin
-node scripts/setup.js
-```
-
-Or point Claude Code at the plugin directory directly:
-
-```bash
-claude --plugin-dir ./prototyper-plugin
-```
 
 ---
 
@@ -152,15 +108,15 @@ A split-screen interactive demo of the HKUST Souvenir Store Virtual Try-On Kiosk
 
 ### Step 1 — Open the example project
 
-If you installed via **npm**:
+If you installed via **npm** or **git clone**:
 ```bash
-cd $(npm root -g)/@cyh928/prototyper/examples/uststore
+cd ~/.agents/skills/prototyper/examples/uststore
 claude
 ```
 
-If you installed via **git clone**:
+If you cloned manually:
 ```bash
-cd prototyper-plugin/examples/uststore
+cd prototyper/examples/uststore
 claude
 ```
 
@@ -400,4 +356,4 @@ prototyper/
 
 ## License
 
-MIT — [github.com/CYH928/prototyper-plugin](https://github.com/CYH928/prototyper-plugin)
+MIT — [github.com/ZorCorp/prototyper](https://github.com/ZorCorp/prototyper)

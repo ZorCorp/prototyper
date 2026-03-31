@@ -1,5 +1,5 @@
 {
-  "name": "@cyh928/prototyper",
+  "name": "@zorcorp/prototyper",
   "version": "1.1.0",
   "description": "Converts product source code or Stitch UI designs into standalone interactive HTML demos. Includes a built-in demo for the HKUST Souvenir Store virtual try-on kiosk.",
   "scripts": {
@@ -26,13 +26,13 @@
     "uststore",
     "virtual-try-on"
   ],
-  "author": "CYH928",
+  "author": "ZorCorp",
   "license": "MIT",
   "engines": {
     "node": ">=18"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/CYH928/prototyper-plugin.git"
+    "url": "https://github.com/ZorCorp/prototyper.git"
   }
 }
