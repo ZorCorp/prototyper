@@ -2,7 +2,7 @@
 'use strict';
 
 /**
- * Post-install setup script for @cyh928/prototyper
+ * Post-install setup script for @ZorCorp/prototyper
  *
  * Installs all skills from this package into ~/.claude/skills/
  *   - Unix/Mac: creates symlinks (so `npm update` propagates changes automatically)
@@ -115,7 +115,7 @@ function main() {
   // 4. Summary
   console.log('');
   console.log('╔══════════════════════════════════════════════════════════╗');
-  console.log('║          @cyh928/prototyper — Skills Installed           ║');
+  console.log('║          @ZorCorp/prototyper — Skills Installed           ║');
   console.log('╠══════════════════════════════════════════════════════════╣');
   for (const name of installed) {
     console.log(`║  ✓  /${name.padEnd(54)}║`);
