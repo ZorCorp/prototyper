@@ -43,14 +43,51 @@ Run all steps at once: `/prototyper:prototyper`
 
 ## Install
 
-### Option A — Claude Code Plugin Marketplace
+### Option A — `npx skills add` (recommended)
 
-```
-/plugin marketplace add ZorCorp/zorskill
-/plugin install prototyper
+Installs to `~/.agents/skills/prototyper/` and creates symlinks in every detected AI tool's skills directory (Claude Code, Codex, Gemini CLI, Cursor, Copilot).
+
+```bash
+npx skills add ZorCorp/prototyper
 ```
 
-### Option B — npm (all ZorCorp skills)
+Update / uninstall:
+
+```bash
+npx skills update ZorCorp/prototyper
+npx skills remove ZorCorp/prototyper
+```
+
+Tell any AI agent to install it:
+
+> Install the Agent Skill at github.com/ZorCorp/prototyper using `npx skills add ZorCorp/prototyper`.
+
+### Option B — `gh skill install` (GitHub CLI)
+
+Copy mode — interactive prompts for target agent and scope. Requires GitHub CLI 2.90.0+.
+
+```bash
+gh skill install ZorCorp/prototyper
+```
+
+Tell any AI agent to install it:
+
+> Install the Agent Skill at github.com/ZorCorp/prototyper using `gh skill install ZorCorp/prototyper`.
+
+### Option C — Shell installer (no npx / gh dependency)
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/ZorCorp/prototyper/main/install.sh | bash
+```
+
+Same canonical architecture as Option A — installs to `~/.agents/skills/prototyper/` and symlinks all detected tool dirs.
+
+```bash
+curl -fsSL .../install.sh | bash -s -- --update      # update + refresh links
+curl -fsSL .../install.sh | bash -s -- --uninstall   # remove skill + all links
+```
+
+### Option D — npm (all ZorCorp skills)
 
 Installs prototyper together with all other ZorCorp skills and auto-symlinks into every agent on your machine.
 
@@ -64,19 +101,16 @@ Update:
 npm update -g @zorcorp/zorskills
 ```
 
-### Option C — Git (manual)
+---
 
-```bash
-git clone https://github.com/ZorCorp/prototyper
-cd prototyper
-node scripts/setup.js
-```
+**Which should I pick?**
 
-Or point Claude Code at the directory directly:
-
-```bash
-claude --plugin-dir ./prototyper
-```
+| Situation | Pick |
+|---|---|
+| Standard setup — cross-tool, canonical `~/.agents/skills/` layout (**recommended**) | **Option A** (`npx skills`) |
+| Already using the `gh` CLI | Option B (`gh skill`) |
+| No `npx` available | Option C (shell installer) |
+| Want all ZorCorp skills in one go | Option D (npm) |
 
 ---
 
